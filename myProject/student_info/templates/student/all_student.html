@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+All Student - Student Management
+{% endblock title %}
+
+
+
+{% block content %}
+
+<!-- Search Section -->
+<section class="search-section">
+    <form method="GET">
+        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search by name or email"
+            class="search-input">
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+</section>
+
+
+<!-- Students Table -->
+<section id="show" class="section">
+    <h2 class="title">Students Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name
+                    <a href="?order=asc" class="sort-icon">🔼</a>
+                    <a href="?order=desc" class="sort-icon">🔽</a>
+                </th>
+                <th>Email</th>
+                <th>Profile Image</th>
+                <th>Created At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td><img src="{{ student.image.url }}" width="60"></td>
+                <td>{{ student.created_at }}</td>
+                <td>
+                    <a href="" class="btn view-btn">View</a>
+                    <a href="{% url 'edit_student' student.id %}" class="btn edit-btn">Edit</a>
+                    <a href="" class="btn delete-btn">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+
+        </tbody>
+    </table>
+</section>
+{% endblock content %}

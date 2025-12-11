@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+Add Student - Student Management
+{% endblock title %}
+
+
+
+{% block content %}
+<!-- Add Student Form -->
+<section id="add" class="section">
+    <h2>Add Student</h2>
+    <hr>
+    <form class="student-form" method="POST" action="{% url 'add_student' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Student Name:</label>
+        <input type="text" placeholder="Enter name" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter email" name="email" required>
+
+        <label>Upload Image:</label>
+        <input type="file" accept="image/*" name="image" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+{% endblock content %}
