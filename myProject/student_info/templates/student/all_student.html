@@ -14,7 +14,7 @@ All Student - Student Management
 <!-- Search Section -->
 <section class="search-section">
     <form method="GET">
-        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search by name or email"
+        <input type="text" name="query" value="{{ request.GET.query }}" placeholder="Search by name or email"
             class="search-input">
         <button type="submit" class="search-btn">Search</button>
     </form>
@@ -44,11 +44,17 @@ All Student - Student Management
             <tr>
                 <td>{{ student.name }}</td>
                 <td>{{ student.email }}</td>
-                <td><img src="{{ student.image.url }}" width="60"></td>
+                <td>
+                    {% if student.image %}
+                        <img src="{{ student.image.url }}" width="60" alt="{{ student.name }}">
+                    {% else %}
+                        <span class="no-image">No Image</span>
+                    {% endif %}
+                </td>
                 <td>{{ student.created_at }}</td>
                 <td>
                     <a href="" class="btn view-btn">View</a>
-                    <a href="{% url 'edit_student' student.id %}" class="btn edit-btn">Edit</a>
+                    <a href="{% url 'update_student' student.id %}" class="btn update-btn">Edit</a>
                     <a href="" class="btn delete-btn">Delete</a>
                 </td>
             </tr>

@@ -114,7 +114,7 @@ table img {
     border: none;
 }
 
-.edit-btn {
+.update-btn {
     background: #f79e1b;
     color: white;
     padding: 6px 10px;
@@ -132,11 +132,10 @@ table img {
 /* Footer CSS */
 .footer {
     width: 100%;
-    background-color: #2B4CAF;
-    padding: 15px;
+    background-color: #5e5e5e;
+    padding: 15px 0;
     text-align: center;
     color: white;
-    margin-top: 40px;
     font-size: 14px;
 }
 .edit-img{

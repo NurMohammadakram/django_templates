@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Update Student - Student Management
+{% endblock title %}
+
+{% block content %}
+<section id="update" class="update-section section">
+    <h2>Update Student</h2>
+    <hr>
+    <form class="student-form" method="POST" action="{% url 'update_student' student.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Student Name:</label>
+        <input type="text" placeholder="Enter name" name="name" value="{{ student.name }}" required>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter email" name="email" value="{{ student.email}}" required>
+
+        <label>Upload Image:</label>
+        <input type="file" accept="image/*" name="image">
+
+        <button type="submit">Update</button>
+    </form>
+</section>
+{% endblock content %}
