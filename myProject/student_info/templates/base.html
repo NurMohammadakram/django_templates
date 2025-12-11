@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" href="{% static 'student_info/css/style.css' %}">
+</head>
+<body>
+    <!-- Navbar file -->
+    {% include 'includes/header.html' %}
+   
+    
+    {% block content %}
+        
+    {% endblock content %}
+        
+  
+    <!-- Footer file -->
+   {% include 'includes/footer.html' %}
+</body>
+</html>
